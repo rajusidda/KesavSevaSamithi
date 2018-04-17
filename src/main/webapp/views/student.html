@@ -1,0 +1,38 @@
+<div class="container">
+<div class="col-sm-8">
+<h2>Students List</h2>
+<table class="table">
+<thead>
+<tr>	
+<th>S.No</th>
+  <th>ID</th>
+  <th>Name</th>
+      </tr>
+</thead>
+<tbody>
+
+<tr ng-repeat="employee in employees">
+		<td>{{$index+1}}</td>
+        <td>{{employee.id}}</td>
+        <td>{{employee.firstName}}</td>
+        <td><button ng-click="remove($index)">Delete</button>
+        <button ng-click="updateEmployee($index)" >Edit</button></td>
+      </tr>
+</tbody>
+
+</table>
+<button ng-click="ShowHide()">Add</button>
+</div>
+<div class="col-sm-4" ng-hide = "IsHidden">
+<h2>Create Employee</h2>
+<form >
+    <input type="text" placeholder="Id" name="id" ng-model="uservo.id" required="required"><br><br>
+       <input type="text" placeholder="First Name" name="firstName" ng-model="uservo.firstName" required="required"><br><br>
+       <input type="text" placeholder="LastName" name="lastName" ng-model="uservo.lastName"><br><br>
+        <input type="text" placeholder="Email" name="email" ng-model="uservo.email"><br><br>
+         <input type="text" placeholder="Location" name="location" ng-model="uservo.location"><br><br>
+       <button  ng-click="save(uservo)" >Create</button>
+       </form>
+
+</div>
+</div>
