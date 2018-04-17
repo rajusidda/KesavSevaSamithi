@@ -40,19 +40,6 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test")
 
     
-    
-	//for cloud
-		compile('org.springframework.cloud:spring-cloud-starter-config')    
-
-   //pivotal CF
-	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-core
-	compile group: 'org.springframework.cloud', name: 'spring-cloud-core', version: '1.2.3.RELEASE'
-	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-spring-service-connector
-	compile group: 'org.springframework.cloud', name: 'spring-cloud-spring-service-connector', version: '1.2.3.RELEASE'
-	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-cloudfoundry-connector
-	compile group: 'org.springframework.cloud', name: 'spring-cloud-cloudfoundry-connector', version: '1.2.3.RELEASE'
-	testCompile group: 'org.mockito', name: 'mockito-all', version: '1.8.4'	 
-    
 }
 
 test {
