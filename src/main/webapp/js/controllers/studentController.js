@@ -1,4 +1,4 @@
-myApp.controller('studentController', function (studentService,$scope,$http,$location) {
+myApp.controller('studentController', function (studentService,$scope,$http,$location,$route) {
 	
 	$scope.employees = [];
 	
@@ -26,6 +26,7 @@ myApp.controller('studentController', function (studentService,$scope,$http,$loc
     	$http.post(backEndUrl+"/save",uservo)
     	.then(
 				function(response){
+				$route.reload();
 					return response.data;
 				}
 
@@ -40,6 +41,7 @@ myApp.controller('studentController', function (studentService,$scope,$http,$loc
       	$http.delete(backEndUrl +'/remove/'+employee.id)
       	.then(
   				function(response){
+  				$route.reload();
   					return response.data;
   				}
   		).catch(function(error) {
