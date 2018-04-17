@@ -1,0 +1,14 @@
+
+applications:
+- name: SpringPivotalServer
+  buildpack: java_buildpack
+  path: build/libs/SpringBootDemo.war
+  memory: 512M
+  instances: 1
+  host: SpringPivotalServer
+  env:
+    JBP_CONFIG_OPENJDK: 'verion: 1.8.+'
+  random-route: true
+  
+  
+  

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.cloud:spring-cloud-cloudfoundry-connector:1.2.3.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-cloudfoundry-connector/1.2.3.RELEASE/f925c498235a948cedcd884f8b9c07c24082104b/spring-cloud-cloudfoundry-connector-1.2.3.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-cloudfoundry-connector/1.2.3.RELEASE/b0f7c31e6c56efceae5777e4eb8726d2887c93f/spring-cloud-cloudfoundry-connector-1.2.3.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
