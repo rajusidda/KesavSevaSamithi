@@ -6,7 +6,6 @@ myApp.config(function($routeProvider) {
         // route for the home page
         .when('/#', {
             templateUrl : 'index.html'
-          
         })
          .when('/login', {
             templateUrl : 'views/login.html',

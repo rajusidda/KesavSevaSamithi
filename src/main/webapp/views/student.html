@@ -11,12 +11,12 @@
 </thead>
 <tbody>
 
-<tr ng-repeat="employee in employees">
+<tr ng-repeat="student in students">
 		<td>{{$index+1}}</td>
-        <td>{{employee.id}}</td>
-        <td>{{employee.firstName}}</td>
+        <td>{{student.id}}</td>
+        <td>{{student.firstName}}</td>
         <td><button ng-click="remove($index)">Delete</button>
-        <button ng-click="updateEmployee($index)" >Edit</button></td>
+        <button ng-click="updateStudent($index)" >Edit</button></td>
       </tr>
 </tbody>
 
@@ -26,12 +26,13 @@
 <div class="col-sm-4" ng-hide = "IsHidden">
 <h2>Create Employee</h2>
 <form >
-    <input type="text" placeholder="Id" name="id" ng-model="uservo.id" required="required"><br><br>
+    <input type="text" placeholder="Id" name="id" ng-model="uservo.id" required="required"  ng-readonly="truefalse"><br><br>
        <input type="text" placeholder="First Name" name="firstName" ng-model="uservo.firstName" required="required"><br><br>
        <input type="text" placeholder="LastName" name="lastName" ng-model="uservo.lastName"><br><br>
         <input type="text" placeholder="Email" name="email" ng-model="uservo.email"><br><br>
          <input type="text" placeholder="Location" name="location" ng-model="uservo.location"><br><br>
-       <button  ng-click="save(uservo)" >Create</button>
+         <button  ng-hide="first" ng-click="save(uservo)" >Create</button>
+        <button  ng-hide="!first" ng-click="update(uservo)" >Update</button>
        </form>
 
 </div>

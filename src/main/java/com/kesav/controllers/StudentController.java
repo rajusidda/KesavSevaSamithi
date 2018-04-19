@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.kesav.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.kesav.services.StudentService;
+
+import javax.xml.ws.Response;
 
 @RestController
 @RequestMapping("/student")
@@ -31,15 +34,13 @@ public class StudentController {
 	
 
 	@RequestMapping(value="/save",  method = RequestMethod.POST)
-	public String SavePersons( @RequestBody Student student){
-		studentService.save(student);
-		return "Success";
+	public ResponseEntity savePerson(@RequestBody Student student){
+		return studentService.save(student);
 	}
 	
 	@RequestMapping(value = "/update/{id}",method=RequestMethod.PUT)
-	public String updatePerson( @PathVariable String id , @RequestBody Student student){
-		studentService.updatePerson(id,student);
-		return "Success";
+	public ResponseEntity updatePerson( @PathVariable String id , @RequestBody Student student){
+		return studentService.updateStudent(id,student);
 	}
 	
 	@RequestMapping( value="/remove/{id}",method = RequestMethod.DELETE)

@@ -1,19 +1,25 @@
 myApp.controller('studentController', function (studentService,$scope,$http,$location,$route) {
 	
-	$scope.employees = [];
+	$scope.students = [];
 	
 	var backEndUrl = "http://localhost:8080/student";
 	
     $scope.IsHidden = true;
+    $scope.first = false;
+
+    $scope.toggle = function() {
+      $scope.first = !$scope.first;
+    }
     
     $scope.ShowHide = function () {
         $scope.IsHidden = $scope.IsHidden ? false : true;
+         $scope.first = false;
     }
-    
+
     function loadData() {
         $http.get(backEndUrl)
             .then(function (response) {
-                $scope.employees = response.data;
+                $scope.students = response.data;
             })
             .catch(function(error) {
                 $scope.error = error;
@@ -22,23 +28,34 @@ myApp.controller('studentController', function (studentService,$scope,$http,$loc
     loadData();
     
     $scope.save = function(uservo) {
-
     	$http.post(backEndUrl+"/save",uservo)
     	.then(
 				function(response){
-				$route.reload();
+				$scope.IsHidden=true;
+				loadData();
+				$scope.uservo = [];
 					return response.data;
 				}
-
 		).catch(function(error) {
-            $scope.error = error.data.message;
+            $scope.error = error;
         });
-		
 	}
+
+	 $scope.update=function(uservo){
+          	$http.put(backEndUrl +'/update/'+uservo.id,uservo)
+          	.then(
+      				function(response){
+      				$route.reload();
+      					return response.data;
+      				}
+      		).catch(function(error) {
+                  $scope.error = error;
+              });
+          }
     
   $scope.remove=function(index){
-  	   var employee = $scope.employees[index];
-      	$http.delete(backEndUrl +'/remove/'+employee.id)
+  	   var student = $scope.students[index];
+      	$http.delete(backEndUrl +'/remove/'+student.id)
       	.then(
   				function(response){
   				$route.reload();
@@ -49,14 +66,12 @@ myApp.controller('studentController', function (studentService,$scope,$http,$loc
           });
       }
   
-  $scope.updateEmployee = function(index){
-	  $scope.uservo = $scope.employees[index];
+  $scope.updateStudent = function(index){
+   $scope.first = true;
+    $scope.truefalse = true;
+	  $scope.uservo = $scope.students[index];
 //	  emloyeeService.set(uservo);
 	  $scope.IsHidden=false;
+
   }
-  
- /*$scope.login=function(userData){
-	  $location.path("/employee");
-  }*/
-  
 });
